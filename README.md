@@ -1,2 +1,3 @@
-# IRCSMS
-'HackathonChatBot' irc sms
+# Hackathon ChatBot
+## Jour 1 : 
+### jknkjn
