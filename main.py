@@ -12,15 +12,18 @@ app = Flask(__name__)
 @app.route("/")
 def check_app():
     # returns a simple string stating the app is working
+	liste_num = ['+33XXXXX','+33XXXXX']
 	try:
-		df = pd.read_csv(path)	
+		df = pd.read_csv(path)
+		for numero in list_num:
+			df = df[df.tel != numero]
 	except:
-		d = {'tel': [], 'rep':[]}
+		d = {'tel': [], 'rep1':[], 'rep2': [], 'conversation': []}
 		df = pd.DataFrame(d)
 		df.to_csv(path, index=False)
 	
 	# liste des numeros pour sollicitation irc
-	envoie_sms(['+33611967370'])#,'+33676569915'])#,'+33613993802'])
+	envoie_sms(liste_num)
 
 	return Response("Crédit Agricole Chatbot en place :)"), 200
 
